@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Sinav_Olusturma.Business.Abstract;
@@ -26,10 +27,7 @@ namespace Sinav_Olusturma.Controllers
             return View();
         }
         public IActionResult Login()
-        {
-            var model = new UserForLoginDto();
-            var context = new SinavContext();
-            var mdel = context.Users.Where(i=>i.Id==1).FirstOrDefault();
+        {        
             return View();
         }
         [HttpPost]
@@ -45,6 +43,8 @@ namespace Sinav_Olusturma.Controllers
                 var userIdentity = new ClaimsIdentity(claims, "login");
                 ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
                 _httpContextAccessor.HttpContext.Session.SetString("username", result.Username);
+                _httpContextAccessor.HttpContext.SignInAsync(principal);
+
                 ViewData["mesaj"] = "";
                 return RedirectToAction("Index", "Home");
             }
