@@ -1,0 +1,28 @@
+﻿@model Sinav_Olusturma.Entities.Dtos.UserForLoginDto
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-5 my-5 mx-auto border border-dark" >
+
+       <h2 class="pt-3 text-center">KULLANICI GİRİŞİ</h2>
+        <form class="p-5" asp-action="Login" asp-controller="Auth">
+            <div class="form-group">
+                @Html.LabelFor(i=>i.Username)
+                <input type="text" class="form-control" asp-for="@Model.Username" aria-describedby="emailHelp" placeholder="Enter User Name">
+             
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(i => i.Password)
+                <input type="password" class="form-control" asp-for="@Model.Password" placeholder="Password">
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+</div>
+

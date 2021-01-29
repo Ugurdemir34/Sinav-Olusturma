@@ -1,0 +1,21 @@
+﻿
+@model List<Sinav_Olusturma.Entities.Concrete.Story>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="row">
+    @foreach (var item in Model)
+    {
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="@item.Thumbnail" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@item.Title</h5>
+                <p class="card-text">deneme</p>
+                <a href="@item.Link" class="btn btn-primary">Seç</a>
+            </div>
+        </div>
+    </div>
+    }
+</div>
+
