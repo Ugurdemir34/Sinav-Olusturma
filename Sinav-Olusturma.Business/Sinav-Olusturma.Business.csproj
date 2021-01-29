@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Sinav_Olusturma.Business</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.1.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sinav-Olusturma.DataAccess\Sinav-Olusturma.DataAccess.csproj" />
+    <ProjectReference Include="..\Sinav-Olusturma.Entities\Sinav-Olusturma.Entities.csproj" />
+  </ItemGroup>
+
+</Project>
