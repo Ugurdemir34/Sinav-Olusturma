@@ -8,9 +8,11 @@ using Microsoft.Extensions.Logging;
 using Sinav_Olusturma.Models;
 using Sinav_Olusturma.Helper;
 using Sinav_Olusturma.DataAccess.Concrete.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Sinav_Olusturma.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
       
