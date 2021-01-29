@@ -9,5 +9,6 @@ namespace Sinav_Olusturma.Business.Abstract
     public interface IUserService
     {
         User GetAdmin(string username, string password);
+     
     }
 }

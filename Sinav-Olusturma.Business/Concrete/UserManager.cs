@@ -18,11 +18,12 @@ namespace Sinav_Olusturma.Business.Concrete
         public User GetAdmin(string username, string password)
         {
             var user = _userDal.Get(i => i.Username == username && i.Password == password);
+            var user2 = _userDal.GetList();
             return user;
             
             
         }
 
-       
+        
     }
 }
