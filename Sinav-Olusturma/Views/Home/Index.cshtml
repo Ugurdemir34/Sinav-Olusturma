@@ -1,28 +1,45 @@
 ﻿@model Sinav_Olusturma.Models.NewQuestionModel
-
 @*@model List<Sinav_Olusturma.Entities.Concrete.Story>*@
 @{
     ViewData["Title"] = "Home Page";
 }
 @*<div class="row">
-    @foreach (var item in Model)
-    {
-    <div class="col-md-4">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="@item.Thumbnail" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">@item.Title</h5>
-                <p class="card-text">deneme</p>
-                <a asp-controller="Question" asp-action="Index" asp-route-storyLink="@item.Link" asp-route-storyTitle="@item.Title" class="btn btn-primary">Seç</a>
+        @foreach (var item in Model)
+        {
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="@item.Thumbnail" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Title</h5>
+                    <p class="card-text">deneme</p>
+                    <a asp-controller="Question" asp-action="Index" asp-route-storyLink="@item.Link" asp-route-storyTitle="@item.Title" class="btn btn-primary">Seç</a>
+                </div>
             </div>
         </div>
-    </div>
-    }
-</div>*@
+        }
+    </div>*@
 
 <br />
-<select class="form-control form-control-lg" asp-for="@Model.StoryTitle" asp-items="@Model.StoryTitles">
-<option disabled selected value="-1">Seç</option>
-   
+<select id="mySelect" class="form-control form-control-lg" onchange="myFunction()" asp-for="@Model.StoryTitle" asp-items="@Model.StoryTitles">
+    <option disabled selected value="-1">Seç</option>
 </select>
+<p id="demo"></p>
+<iframe src="https://www.wired.com/2021/01/geeks-guide-star-trek-lower-decks/" width="680" height="480" allowfullscreen></iframe>
+@section ExamScripts
+{
+    <script>
+        function myFunction() {
+            var x = document.getElementById("mySelect").value;
+            $.get(x, function (data) {
+               
+                console.log(data);
+            });
+            document.write('<font id=font><iframe src='+x+' width="775" frameborder="0" scrolling=no height="6500"></iframe></font>');
+        }
+    </script>
+    <script type="text/javascript">
+
+       
+        </script>
+}
 
