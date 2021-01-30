@@ -39,6 +39,9 @@ namespace Sinav_Olusturma.DataAccess.Migrations
                     b.Property<string>("StoryId")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Title")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.HasIndex("StoryId");
@@ -49,18 +52,13 @@ namespace Sinav_Olusturma.DataAccess.Migrations
             modelBuilder.Entity("Sinav_Olusturma.Entities.Concrete.Story", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Content")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Link")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Thumbnail")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
