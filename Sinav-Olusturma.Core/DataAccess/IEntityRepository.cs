@@ -13,5 +13,6 @@ namespace Sinav_Olusturma.Core.DataAccess
         void Add(T entity);
         void Update(T entity);
         void Delete(T entity);
+        void AddRange(List<T> entities);
     }
 }

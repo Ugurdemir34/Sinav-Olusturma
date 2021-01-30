@@ -22,6 +22,19 @@ namespace Sinav_Olusturma.Core.DataAccess.EntityFramework
             }
         }
 
+        public void AddRange(List<TEntity> entities)
+        {
+            using (var context = new TContext())
+            {
+                for (int i = 0; i < entities.Count; i++)
+                {
+                    var added = context.Entry(entities[i]);
+                    added.State = EntityState.Added;
+                    context.SaveChanges();
+                }
+            }
+        }
+
         public void Delete(TEntity entity)
         {
             using (var context = new TContext())
