@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Sinav_Olusturma.Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Sinav_Olusturma.Entities.Concrete
 {
-    public class Story
+    public class Story :IEntity
     {
         public string Id { get; set; }
         public string Title { get; set; }
