@@ -41,7 +41,7 @@ namespace Sinav_Olusturma.Controllers
             List<SelectListItem> stories = (from a in RssReader.GetStories()
                                             select new SelectListItem
                                             {
-                                                Value = a.Title,
+                                                Value = a.Link,
                                                 Text = a.Title
                                             }).ToList();
             return stories;
