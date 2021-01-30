@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Sinav_Olusturma.DataAccess.Concrete.EntityFramework;
 
 namespace Sinav_Olusturma.DataAccess.Migrations
 {
     [DbContext(typeof(SinavContext))]
-    partial class SinavContextModelSnapshot : ModelSnapshot
+    [Migration("20210130174500_GuidAdded")]
+    partial class GuidAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

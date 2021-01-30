@@ -19,6 +19,7 @@ namespace Sinav_Olusturma.Business.Concrete
         {
             var question = new Question
             {
+                StoryId = questionaddDto.StoryId,
                 CorrectOption = questionaddDto.CorrectOption,
                 OptionA = questionaddDto.OptionA,
                 OptionB = questionaddDto.OptionB,

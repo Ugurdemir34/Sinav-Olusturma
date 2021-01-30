@@ -13,6 +13,7 @@ namespace Sinav_Olusturma.Entities.Concrete
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Title { get; set; }
+        public int StoryId { get; set; }
         public string OptionA { get; set; }
         public string OptionB { get; set; }
         public string OptionC { get; set; }

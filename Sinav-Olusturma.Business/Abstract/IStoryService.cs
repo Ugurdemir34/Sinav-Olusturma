@@ -9,5 +9,6 @@ namespace Sinav_Olusturma.Business.Abstract
     public interface IStoryService
     {
         void Add(StoryAddDto storyaddDto);
+        int LastIndex(StoryAddDto storyAddDto);
     }
 }

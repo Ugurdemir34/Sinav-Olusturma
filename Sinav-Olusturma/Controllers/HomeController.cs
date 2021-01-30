@@ -43,10 +43,15 @@ namespace Sinav_Olusturma.Controllers
             {
                 Description = DateTime.Now.ToString(),
                 Link = model.StoryLink,
-                Title = model.StoryTitle,               
+                Title = model.StoryTitle,
             };
+            _storyService.Add(storyaddDto);
+
+            ViewData["message"] = "Sınav Başarıyla Oluşturuldu !";
+            var lastindex = _storyService.LastIndex(storyaddDto);
             var question1 = new QuestionAddDto()
             {
+                StoryId = lastindex,
                 CorrectOption = model.Question1.CorrectOption,
                 OptionA = model.Question1.OptionA,
                 OptionB = model.Question1.OptionB,
@@ -56,6 +61,7 @@ namespace Sinav_Olusturma.Controllers
             };
             var question2 = new QuestionAddDto()
             {
+                StoryId = lastindex,
                 CorrectOption = model.Question2.CorrectOption,
                 OptionA = model.Question2.OptionA,
                 OptionB = model.Question2.OptionB,
@@ -65,6 +71,7 @@ namespace Sinav_Olusturma.Controllers
             };
             var question3 = new QuestionAddDto()
             {
+                StoryId = lastindex,
                 CorrectOption = model.Question3.CorrectOption,
                 OptionA = model.Question3.OptionA,
                 OptionB = model.Question3.OptionB,
@@ -74,6 +81,7 @@ namespace Sinav_Olusturma.Controllers
             };
             var question4 = new QuestionAddDto()
             {
+                StoryId = lastindex,
                 CorrectOption = model.Question4.CorrectOption,
                 OptionA = model.Question4.OptionA,
                 OptionB = model.Question4.OptionB,
@@ -81,12 +89,12 @@ namespace Sinav_Olusturma.Controllers
                 OptionD = model.Question4.OptionD,
                 Title = model.Question4.Title
             };
-            _storyService.Add(storyaddDto);
-            //_questionService.Add(question1);
-            //_questionService.Add(question2);
-            //_questionService.Add(question3);
-            //_questionService.Add(question4);
-            return View();
+
+            _questionService.Add(question1);
+            _questionService.Add(question2);
+            _questionService.Add(question3);
+            _questionService.Add(question4);
+            return RedirectToAction("Index");
         }
 
         public IActionResult Privacy()
@@ -100,11 +108,11 @@ namespace Sinav_Olusturma.Controllers
                                             {
                                                 Value = a.Link,
                                                 Text = a.Title,
-                                                
+
                                             }).ToList();
             return stories;
         }
 
-      
+
     }
 }

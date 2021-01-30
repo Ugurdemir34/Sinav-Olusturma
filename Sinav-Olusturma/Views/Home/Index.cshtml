@@ -20,7 +20,7 @@
     </div>*@
 
 <br />
-
+@ViewData["message"]
 <form asp-action="Index" asp-controller="Home">
 
     <select id="mySelect" class="form-control form-control-lg" onchange="myFunction(this)" asp-for="@Model.StoryLink" asp-items="@Model.StoryTitles">
@@ -191,13 +191,13 @@
             });
             //document.write('<font id=font><iframe src='+x+' width="775" frameborder="0" scrolling=no height="6500"></iframe></font>');
             //
-           
+
             var frame = document.getElementById("frame");
             frame.src = x + "/#start-of-content";
 
         }
         function onSelectedIndexChanged(value) {
-           
+
         }
     </script>
     <script type="text/javascript">

@@ -21,13 +21,18 @@ namespace Sinav_Olusturma.Business.Concrete
             {
                 //Content = storyaddDto.Content,
                 Description = storyaddDto.Description,
-                Id = storyaddDto.Id,
+               // Id = Guid.NewGuid(),
                 Link = storyaddDto.Link,
                 //Thumbnail = storyaddDto.Thumbnail,
                 Title = storyaddDto.Title
             };
             _storyDal.Add(story);
 
+        }
+
+        public int LastIndex(StoryAddDto storyAddDto)
+        {
+            return _storyDal.Get(i => i.Link == storyAddDto.Link && i.Title == storyAddDto.Title).Id;
         }
     }
 }
