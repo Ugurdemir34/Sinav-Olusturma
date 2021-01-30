@@ -10,17 +10,22 @@ using Sinav_Olusturma.Helper;
 using Sinav_Olusturma.DataAccess.Concrete.EntityFramework;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Sinav_Olusturma.Entities.Concrete;
+using Sinav_Olusturma.Business.Abstract;
+using Sinav_Olusturma.Entities.Dtos;
 
 namespace Sinav_Olusturma.Controllers
 {
     [Authorize]
     public class HomeController : Controller
     {
-      
-    
-        public HomeController()
+
+        private IStoryService _storyService;
+        private IQuestionService _questionService;
+        public HomeController(IStoryService storyService, IQuestionService questionService)
         {
-           
+            _storyService = storyService;
+            _questionService = questionService;
         }
 
         public IActionResult Index()
@@ -30,6 +35,58 @@ namespace Sinav_Olusturma.Controllers
                 StoryTitles = LoadStories()
             };
             return View(model);
+        }
+        [HttpPost]
+        public IActionResult Index(NewQuestionModel model)
+        {
+            var storyaddDto = new StoryAddDto()
+            {
+                Description = DateTime.Now.ToString(),
+                Link = model.StoryLink,
+                Title = model.StoryTitle,               
+            };
+            var question1 = new QuestionAddDto()
+            {
+                CorrectOption = model.Question1.CorrectOption,
+                OptionA = model.Question1.OptionA,
+                OptionB = model.Question1.OptionB,
+                OptionC = model.Question1.OptionC,
+                OptionD = model.Question1.OptionD,
+                Title = model.Question1.Title
+            };
+            var question2 = new QuestionAddDto()
+            {
+                CorrectOption = model.Question2.CorrectOption,
+                OptionA = model.Question2.OptionA,
+                OptionB = model.Question2.OptionB,
+                OptionC = model.Question2.OptionC,
+                OptionD = model.Question2.OptionD,
+                Title = model.Question2.Title
+            };
+            var question3 = new QuestionAddDto()
+            {
+                CorrectOption = model.Question3.CorrectOption,
+                OptionA = model.Question3.OptionA,
+                OptionB = model.Question3.OptionB,
+                OptionC = model.Question3.OptionC,
+                OptionD = model.Question3.OptionD,
+                Title = model.Question3.Title
+            };
+            var question4 = new QuestionAddDto()
+            {
+                CorrectOption = model.Question4.CorrectOption,
+                OptionA = model.Question4.OptionA,
+                OptionB = model.Question4.OptionB,
+                OptionC = model.Question4.OptionC,
+                OptionD = model.Question4.OptionD,
+                Title = model.Question4.Title
+            };
+            _storyService.Add(storyaddDto);
+            //_questionService.Add(question1);
+            //_questionService.Add(question2);
+            //_questionService.Add(question3);
+            //_questionService.Add(question4);
+            return View();
         }
 
         public IActionResult Privacy()
@@ -42,7 +99,8 @@ namespace Sinav_Olusturma.Controllers
                                             select new SelectListItem
                                             {
                                                 Value = a.Link,
-                                                Text = a.Title
+                                                Text = a.Title,
+                                                
                                             }).ToList();
             return stories;
         }
