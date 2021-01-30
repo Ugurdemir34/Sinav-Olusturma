@@ -12,7 +12,7 @@
             <div class="card-body">
                 <h5 class="card-title">@item.Title</h5>
                 <p class="card-text">deneme</p>
-                <a href="@item.Link" class="btn btn-primary">Seç</a>
+                <a asp-controller="Question" asp-action="Index" asp-route-storyLink="@item.Link" asp-route-storyTitle="@item.Title" class="btn btn-primary">Seç</a>
             </div>
         </div>
     </div>
