@@ -57,7 +57,6 @@ namespace Sinav_Olusturma.Core.DataAccess.EntityFramework
                 }
             }
         }
-
         public TEntity Get(Expression<Func<TEntity, bool>> filter = null)
         {
             using (var context = new TContext())
@@ -65,7 +64,6 @@ namespace Sinav_Olusturma.Core.DataAccess.EntityFramework
                 return context.Set<TEntity>().FirstOrDefault(filter);
             }
         }
-
         public List<TEntity> GetList(Expression<Func<TEntity, bool>> filter = null)
         {
             using (var context = new TContext())

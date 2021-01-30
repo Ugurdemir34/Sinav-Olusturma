@@ -14,6 +14,6 @@ namespace Sinav_Olusturma.Core.DataAccess
         void Update(T entity);
         void Delete(T entity);
         void AddRange(List<T> entities);
-        void DeleteRange(List<T> entities)
+        void DeleteRange(List<T> entities);
     }
 }
