@@ -1,0 +1,73 @@
+﻿@model List<Sinav_Olusturma.Entities.Concrete.Story>
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Başlık</th>
+                <th scope="col">Tarih</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 1; i <= Model.Count; i++)
+            {
+                <tr>
+                    <th scope="row">@i</th>
+                    <td>@Model[i - 1].Title</td>
+                    <td>@Model[i - 1].Description</td>
+                    <td><button class="btn btn-danger" id="@Model[i-1].Id">Sil</button></td>
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+
+</div>
+@section ListScripts
+{
+    <script>
+        $(".table tbody").on("click", '.btn-danger', function (e) {
+            var id = this.id;
+            var data_table = $('.table tbody');
+            var row = $(this).parent().parent();
+
+            console.log("Tıklanan => " + id);
+            swal({
+                title: "Silmek İstediğinize Emin Misiniz ?",
+                text: "Bu işlem geri alınamaz !",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $.ajax({
+                            type: "GET",
+                            url: "/Home/DeleteStory?storyId=" + id,
+                            dataType: 'json',
+                            success: function (data) {
+                                swal("İşlem Başarılı !", "Kayıt Başarıyla Silindi", "success");
+                                row.fadeOut(1000, function () {
+                                });
+
+
+
+                            }
+                        });
+                    }
+                    else {
+                        console.log("Hayır");
+                    }
+                })
+                
+
+        })
+    </script>
+}
