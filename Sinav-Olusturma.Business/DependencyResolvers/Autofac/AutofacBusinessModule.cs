@@ -16,6 +16,12 @@ namespace Sinav_Olusturma.Business.DependencyResolvers.Autofac
             builder.RegisterType<UserManager>().As<IUserService>();
             builder.RegisterType<EfUserDal>().As<IUserDal>();
 
+            builder.RegisterType<StoryManager>().As<IStoryService>();
+            builder.RegisterType<EfStoryDal>().As<IStoryDal>();
+
+            builder.RegisterType<QuestionManager>().As<IQuestionService>();
+            builder.RegisterType<EfQuestionDal>().As<IQuestionDal>();
+
             builder.RegisterType<AuthManager>().As<IAuthService>();
           
         }
