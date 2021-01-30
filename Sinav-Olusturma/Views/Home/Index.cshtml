@@ -20,38 +20,41 @@
     </div>*@
 
 <br />
-<select id="mySelect" class="form-control form-control-lg" onchange="myFunction()" asp-for="@Model.StoryTitle" asp-items="@Model.StoryTitles">
-    <option disabled selected value="-1">Seç</option>
-</select>
-<iframe id="frame" src="https://www.wired.com/2021/01/geeks-guide-star-trek-lower-decks/#start-of-content" style="border:none;width:100%; clip:rect(190px,1100px,800px,250px);" height="480" allowfullscreen></iframe>
-<br />
-<form>
+
+<form asp-action="Index" asp-controller="Home">
+
+    <select id="mySelect" class="form-control form-control-lg" onchange="myFunction(this)" asp-for="@Model.StoryLink" asp-items="@Model.StoryTitles">
+        <option disabled selected value="-1">Seç</option>
+    </select>
+    <input asp-for="@Model.StoryTitle" type="hidden" id="Hidden" />
+    <iframe id="frame" src="" style="border:none;width:100%; clip:rect(190px,1100px,800px,250px);" height="480" allowfullscreen></iframe>
+    <br />
     <div id="soru1 form-group">
         <div class="row">
             <div class="col-md-12">
-                <input type="text" class="form-control" placeholder="Soru 1" />
+                <input type="text" class="form-control" asp-for="@Model.Question1.Title" placeholder="Soru 1" />
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 ">
-                <input type="text" class="form-control" placeholder="A)" />
+                <input type="text" class="form-control" asp-for="@Model.Question1.OptionA" placeholder="A)" />
             </div>
             <div class="col-md-6 ">
-                <input type="text" class="form-control" placeholder="B)" />
+                <input type="text" class="form-control" asp-for="@Model.Question1.OptionB" placeholder="B)" />
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 ">
-                <input type="text" class="form-control" placeholder="C)" />
+                <input type="text" class="form-control" asp-for="@Model.Question1.OptionC" placeholder="C)" />
             </div>
             <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="D)" />
+                <input type="text" class="form-control" asp-for="@Model.Question1.OptionD" placeholder="D)" />
             </div>
         </div>
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4">
-                <select id="soru1cevap" class="form-control">
+                <select id="soru1cevap" class="form-control" asp-for="@Model.Question1.CorrectOption">
                     <option disabled selected value="-1">Doğru Cevap Seç</option>
                     <option value="A">A</option>
                     <option value="B">B</option>
@@ -66,29 +69,29 @@
     <div id="soru2 form-group">
         <div class="row">
             <div class="col-md-12">
-                <input type="text" class="form-control" placeholder="Soru 2" />
+                <input type="text" class="form-control" asp-for="@Model.Question2.Title" placeholder="Soru 2" />
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 ">
-                <input type="text" class="form-control" placeholder="A)" />
+                <input type="text" class="form-control" asp-for="@Model.Question2.OptionA" placeholder="A)" />
             </div>
             <div class="col-md-6 ">
-                <input type="text" class="form-control" placeholder="B)" />
+                <input type="text" class="form-control" asp-for="@Model.Question2.OptionB" placeholder="B)" />
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 ">
-                <input type="text" class="form-control" placeholder="C)" />
+                <input type="text" class="form-control" asp-for="@Model.Question2.OptionC" placeholder="C)" />
             </div>
             <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="D)" />
+                <input type="text" class="form-control" asp-for="@Model.Question2.OptionD" placeholder="D)" />
             </div>
         </div>
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4">
-                <select id="soru2cevap" class="form-control">
+                <select id="soru2cevap" class="form-control" asp-for="@Model.Question2.CorrectOption">
                     <option disabled selected value="-1">Doğru Cevap Seç</option>
                     <option value="A">A</option>
                     <option value="B">B</option>
@@ -103,29 +106,29 @@
     <div id="soru3 form-group">
         <div class="row">
             <div class="col-md-12">
-                <input type="text" class="form-control" placeholder="Soru 3" />
+                <input type="text" class="form-control" asp-for="@Model.Question3.Title" placeholder="Soru 3" />
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 ">
-                <input type="text" class="form-control" placeholder="A)" />
+                <input type="text" class="form-control" asp-for="@Model.Question3.OptionA" placeholder="A)" />
             </div>
             <div class="col-md-6 ">
-                <input type="text" class="form-control" placeholder="B)" />
+                <input type="text" class="form-control" asp-for="@Model.Question3.OptionB" placeholder="B)" />
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 ">
-                <input type="text" class="form-control" placeholder="C)" />
+                <input type="text" class="form-control" asp-for="@Model.Question3.OptionC" placeholder="C)" />
             </div>
             <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="D)" />
+                <input type="text" class="form-control" asp-for="@Model.Question3.OptionD" placeholder="D)" />
             </div>
         </div>
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4">
-                <select id="soru3cevap" class="form-control">
+                <select id="soru3cevap" class="form-control" asp-for="@Model.Question3.CorrectOption">
                     <option disabled selected value="-1">Doğru Cevap Seç</option>
                     <option value="A">A</option>
                     <option value="B">B</option>
@@ -140,29 +143,29 @@
     <div id="soru4 form-group">
         <div class="row">
             <div class="col-md-12">
-                <input type="text" class="form-control" placeholder="Soru 4" />
+                <input type="text" class="form-control" asp-for="@Model.Question4.Title" placeholder="Soru 4" />
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 ">
-                <input type="text" class="form-control" placeholder="A)" />
+                <input type="text" class="form-control" asp-for="@Model.Question4.OptionA" placeholder="A)" />
             </div>
             <div class="col-md-6 ">
-                <input type="text" class="form-control" placeholder="B)" />
+                <input type="text" class="form-control" asp-for="@Model.Question4.OptionB" placeholder="B)" />
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 ">
-                <input type="text" class="form-control" placeholder="C)" />
+                <input type="text" class="form-control" asp-for="@Model.Question4.OptionC" placeholder="C)" />
             </div>
             <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="D)" />
+                <input type="text" class="form-control" asp-for="@Model.Question4.OptionD" placeholder="D)" />
             </div>
         </div>
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4">
-                <select id="soru4cevap" class="form-control">
+                <select id="soru4cevap" class="form-control" asp-for="@Model.Question4.CorrectOption">
                     <option disabled selected value="-1">Doğru Cevap Seç</option>
                     <option value="A">A</option>
                     <option value="B">B</option>
@@ -174,20 +177,27 @@
         </div>
     </div>
     <br />
+    <input type="submit" value="Gönder" class="btn btn-primary" />
 </form>
 @section ExamScripts
 {
     <script>
-        function myFunction() {
+        function myFunction(value) {
             var x = document.getElementById("mySelect").value;
+            var textValue = value.options[value.selectedIndex].text;
+            document.getElementById('Hidden').value = textValue;
             $.get(x, function (data) {
                 console.log(data);
             });
             //document.write('<font id=font><iframe src='+x+' width="775" frameborder="0" scrolling=no height="6500"></iframe></font>');
             //
+           
             var frame = document.getElementById("frame");
             frame.src = x + "/#start-of-content";
 
+        }
+        function onSelectedIndexChanged(value) {
+           
         }
     </script>
     <script type="text/javascript">
