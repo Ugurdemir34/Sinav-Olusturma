@@ -23,23 +23,176 @@
 <select id="mySelect" class="form-control form-control-lg" onchange="myFunction()" asp-for="@Model.StoryTitle" asp-items="@Model.StoryTitles">
     <option disabled selected value="-1">Seç</option>
 </select>
-<p id="demo"></p>
-<iframe src="https://www.wired.com/2021/01/geeks-guide-star-trek-lower-decks/" width="680" height="480" allowfullscreen></iframe>
+<iframe id="frame" src="https://www.wired.com/2021/01/geeks-guide-star-trek-lower-decks/#start-of-content" style="border:none;width:100%; clip:rect(190px,1100px,800px,250px);" height="480" allowfullscreen></iframe>
+<br />
+<form>
+    <div id="soru1 form-group">
+        <div class="row">
+            <div class="col-md-12">
+                <input type="text" class="form-control" placeholder="Soru 1" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 ">
+                <input type="text" class="form-control" placeholder="A)" />
+            </div>
+            <div class="col-md-6 ">
+                <input type="text" class="form-control" placeholder="B)" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 ">
+                <input type="text" class="form-control" placeholder="C)" />
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="D)" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <select id="soru1cevap" class="form-control">
+                    <option disabled selected value="-1">Doğru Cevap Seç</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+    <br />
+    <div id="soru2 form-group">
+        <div class="row">
+            <div class="col-md-12">
+                <input type="text" class="form-control" placeholder="Soru 2" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 ">
+                <input type="text" class="form-control" placeholder="A)" />
+            </div>
+            <div class="col-md-6 ">
+                <input type="text" class="form-control" placeholder="B)" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 ">
+                <input type="text" class="form-control" placeholder="C)" />
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="D)" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <select id="soru2cevap" class="form-control">
+                    <option disabled selected value="-1">Doğru Cevap Seç</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+    <br />
+    <div id="soru3 form-group">
+        <div class="row">
+            <div class="col-md-12">
+                <input type="text" class="form-control" placeholder="Soru 3" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 ">
+                <input type="text" class="form-control" placeholder="A)" />
+            </div>
+            <div class="col-md-6 ">
+                <input type="text" class="form-control" placeholder="B)" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 ">
+                <input type="text" class="form-control" placeholder="C)" />
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="D)" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <select id="soru3cevap" class="form-control">
+                    <option disabled selected value="-1">Doğru Cevap Seç</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+    <br />
+    <div id="soru4 form-group">
+        <div class="row">
+            <div class="col-md-12">
+                <input type="text" class="form-control" placeholder="Soru 4" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 ">
+                <input type="text" class="form-control" placeholder="A)" />
+            </div>
+            <div class="col-md-6 ">
+                <input type="text" class="form-control" placeholder="B)" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 ">
+                <input type="text" class="form-control" placeholder="C)" />
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="D)" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <select id="soru4cevap" class="form-control">
+                    <option disabled selected value="-1">Doğru Cevap Seç</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+    <br />
+</form>
 @section ExamScripts
 {
     <script>
         function myFunction() {
             var x = document.getElementById("mySelect").value;
             $.get(x, function (data) {
-               
                 console.log(data);
             });
-            document.write('<font id=font><iframe src='+x+' width="775" frameborder="0" scrolling=no height="6500"></iframe></font>');
+            //document.write('<font id=font><iframe src='+x+' width="775" frameborder="0" scrolling=no height="6500"></iframe></font>');
+            //
+            var frame = document.getElementById("frame");
+            frame.src = x + "/#start-of-content";
+
         }
     </script>
     <script type="text/javascript">
 
-       
-        </script>
+
+    </script>
 }
 
