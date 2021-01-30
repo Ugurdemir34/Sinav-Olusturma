@@ -29,7 +29,7 @@ namespace Sinav_Olusturma.Helper
                     Id = stories[i].Id+"",
                   //  Content = stories[i].Content.ToString(),
                     Title = stories[i].Title.Text,
-                    Thumbnail = stories[i].ElementExtensions.Where(p => p.OuterName == "thumbnail").First().GetObject<XElement>().Attribute("url").Value,                  
+                    //Thumbnail = stories[i].ElementExtensions.Where(p => p.OuterName == "thumbnail").First().GetObject<XElement>().Attribute("url").Value,                  
                     Link =  stories[i].Links.FirstOrDefault().Uri.ToString()
                 });
             }

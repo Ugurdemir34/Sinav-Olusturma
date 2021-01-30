@@ -19,11 +19,11 @@ namespace Sinav_Olusturma.Business.Concrete
         {
             var story = new Story()
             {
-                Content = storyaddDto.Content,
+                //Content = storyaddDto.Content,
                 Description = storyaddDto.Description,
                 Id = storyaddDto.Id,
                 Link = storyaddDto.Link,
-                Thumbnail = storyaddDto.Thumbnail,
+                //Thumbnail = storyaddDto.Thumbnail,
                 Title = storyaddDto.Title
             };
             _storyDal.Add(story);
