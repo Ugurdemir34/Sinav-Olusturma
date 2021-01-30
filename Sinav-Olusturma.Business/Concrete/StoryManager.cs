@@ -30,6 +30,21 @@ namespace Sinav_Olusturma.Business.Concrete
 
         }
 
+        public void Delete(Story story)
+        {
+            _storyDal.Delete(story);
+        }
+
+        public List<Story> GetAll()
+        {
+            return _storyDal.GetList();
+        }
+
+        public Story GetById(int id)
+        {
+            return _storyDal.Get(i => i.Id == id);
+        }
+
         public int LastIndex(StoryAddDto storyAddDto)
         {
             return _storyDal.Get(i => i.Link == storyAddDto.Link && i.Title == storyAddDto.Title).Id;
