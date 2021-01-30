@@ -16,5 +16,6 @@ namespace Sinav_Olusturma.Models
         public Question Question3 { get; set; }
         public Question Question4 { get; set; }
         public List<SelectListItem> StoryTitles { get; set; }
+        public Story Story { get; set; }
     }
 }
