@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Sinav_Olusturma.Entities.Concrete;
+using Sinav_Olusturma.Helper;
 
 namespace Sinav_Olusturma.Controllers
 {
@@ -14,7 +15,9 @@ namespace Sinav_Olusturma.Controllers
         {
             ViewData["storyLink"] = storyLink;
             ViewData["storyTitle"] = storyTitle;
+            TempData["stories"] = RssReader.GetStories();
             return View();
         }
+        
     }
 }
