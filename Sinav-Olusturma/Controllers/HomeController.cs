@@ -121,6 +121,9 @@ namespace Sinav_Olusturma.Controllers
         {
             var story = _storyService.GetById(storyId);
             _storyService.Delete(story);
+
+            var questions = _questionService.GetByStoryId(storyId);
+            _questionService.DeleteRange(questions);
             return Json("1");
         }
 
