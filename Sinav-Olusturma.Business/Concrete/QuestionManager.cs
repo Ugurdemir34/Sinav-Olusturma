@@ -29,5 +29,15 @@ namespace Sinav_Olusturma.Business.Concrete
             };
             _questionDal.Add(question);
         }
+
+        public void DeleteRange(List<Question> questions)
+        {
+            _questionDal.DeleteRange(questions);
+        }
+
+        public List<Question> GetByStoryId(int storyId)
+        {
+            return _questionDal.GetList(i => i.StoryId == storyId);
+        }
     }
 }
