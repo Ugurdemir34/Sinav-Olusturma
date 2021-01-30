@@ -45,6 +45,19 @@ namespace Sinav_Olusturma.Core.DataAccess.EntityFramework
             }
         }
 
+        public void DeleteRange(List<TEntity> entities)
+        {
+            using (var context = new TContext())
+            {
+                for (int i = 0; i < entities.Count; i++)
+                {
+                    var deleted = context.Entry(entities[i]);
+                    deleted.State = EntityState.Deleted;
+                    context.SaveChanges();
+                }
+            }
+        }
+
         public TEntity Get(Expression<Func<TEntity, bool>> filter = null)
         {
             using (var context = new TContext())
