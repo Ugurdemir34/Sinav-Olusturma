@@ -112,7 +112,17 @@ namespace Sinav_Olusturma.Controllers
                                             }).ToList();
             return stories;
         }
-
+        public IActionResult List()
+        {
+            var model = _storyService.GetAll();
+            return View(model);
+        }
+        public JsonResult DeleteStory(int storyId)
+        {
+            var story = _storyService.GetById(storyId);
+            _storyService.Delete(story);
+            return Json("1");
+        }
 
     }
 }
