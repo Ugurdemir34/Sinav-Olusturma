@@ -9,6 +9,7 @@ using Sinav_Olusturma.Models;
 using Sinav_Olusturma.Helper;
 using Sinav_Olusturma.DataAccess.Concrete.EntityFramework;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Sinav_Olusturma.Controllers
 {
@@ -17,20 +18,33 @@ namespace Sinav_Olusturma.Controllers
     {
       
     
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController()
         {
            
         }
 
         public IActionResult Index()
         {
-            var model =RssReader.GetStories();
+            var model = new NewQuestionModel()
+            {
+                StoryTitles = LoadStories()
+            };
             return View(model);
         }
 
         public IActionResult Privacy()
         {
             return View();
+        }
+        private List<SelectListItem> LoadStories()
+        {
+            List<SelectListItem> stories = (from a in RssReader.GetStories()
+                                            select new SelectListItem
+                                            {
+                                                Value = a.Title,
+                                                Text = a.Title
+                                            }).ToList();
+            return stories;
         }
 
       
