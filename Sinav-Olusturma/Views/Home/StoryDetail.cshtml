@@ -5,7 +5,7 @@
 }
 
 <h3 id="storyTitle">@Model.Story.Title</h3>
-<input type="hidden" value="@Model.StoryLink"/>
+<input type="hidden" value="@Model.StoryLink" />
 <br />
 <iframe id="frame" src="" style="border:none;width:100%; clip:rect(190px,1100px,800px,250px);" height="480" allowfullscreen></iframe>
 <form>
@@ -84,7 +84,7 @@
     </div>
     <div class="row mt-5">
         <div class="col-4"></div>
-        <div class="col-4"><button class="btn btn-lg btn-success">Sınavı Tamamla</button></div>
+        <div class="col-4"><a class="btn btn-lg btn-success" id="finish">Sınavı Tamamla</a></div>
         <div class="col-4"></div>
     </div>
 </form>
@@ -96,5 +96,22 @@
         var frame = document.getElementById("frame");
         frame.src = x;
         console.log(@Model.Question1.CorrectOption);
+    </script>
+    <script>
+        var array = [67, 'B', 'A', 'C', 'A'];
+        $("#finish").click(function () {
+            $.ajax({
+                type: "GET",
+                url: "/Home/FinishExam",
+                data: $.param({ controlArray: array }, true),
+                contentType: 'application/json;charset=utf-8',
+                success: function (data) {
+                    $.each(data, function (index) {
+                        alert(data[index]);
+                    })
+                }
+            });
+        })
+      
     </script>
 }

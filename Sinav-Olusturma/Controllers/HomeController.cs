@@ -140,5 +140,22 @@ namespace Sinav_Olusturma.Controllers
             };
             return View(model);
         }
+        public JsonResult FinishExam(string[] controlArray)
+        {
+            var question = _questionService.GetByStoryId(int.Parse(controlArray[0]));
+            var resultArray = new List<int>();
+            for (int i = 0; i < question.Count; i++)
+            {
+                if(question[i].CorrectOption == controlArray[i+1])
+                {
+                    resultArray.Add(1);
+                }
+                else
+                {
+                    resultArray.Add(0);
+                }
+            }
+            return Json(resultArray);
+        }
     }
 }
