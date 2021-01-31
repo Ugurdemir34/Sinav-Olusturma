@@ -9,7 +9,7 @@ son 5 yazıyı RSS ile sayfa içine otomatik olarak alınması. Alınan bu yazı
 hakkında 4 adet soru hazırlanıp sisteme kaydedilmesi. Kaydedilen sınavı kullanıcının
 karşısına çıkartıp, verdiği cevaplara göre doğru ve yanlış cevaplarının gösterilmesi.
 
-![1](https://user-images.githubusercontent.com/42480609/106384506-50885900-63dc-11eb-8f9a-1ecf3b486d80.png)
+![1](https://user-images.githubusercontent.com/42480609/106388379-4cb20200-63ef-11eb-9b35-ede5585b93d4.png)
 ![2](https://user-images.githubusercontent.com/42480609/106384509-5120ef80-63dc-11eb-87a4-54bb27d398f5.png)
 ![3](https://user-images.githubusercontent.com/42480609/106384514-51b98600-63dc-11eb-8e6a-3cc12a1f38cc.png)
 ![4](https://user-images.githubusercontent.com/42480609/106384515-51b98600-63dc-11eb-97be-2b52f1c2fee1.png)
