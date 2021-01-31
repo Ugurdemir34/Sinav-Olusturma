@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Sinav_Olusturma.Business.Abstract;
@@ -31,19 +32,19 @@ namespace Sinav_Olusturma.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Login(UserForLoginDto model)
+        public async Task<IActionResult> Login(UserForLoginDto model)
         {
             var result = _authService.Login(model);
             if (result != null)
             {
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name,model.Username)
+                    new Claim("Name",model.Username)
                 };
-                var userIdentity = new ClaimsIdentity(claims, "login");
+                var userIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
                 _httpContextAccessor.HttpContext.Session.SetString("username", result.Username);
-                _httpContextAccessor.HttpContext.SignInAsync(principal);
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
                 ViewData["mesaj"] = "";
                 return RedirectToAction("Index", "Home");
@@ -53,6 +54,12 @@ namespace Sinav_Olusturma.Controllers
                 ViewData["mesaj"] = "Kullanıcı Adı veya Parola Hatalı !";
             }
             return View();
+        }
+        public async Task<IActionResult> LogOut()
+        {
+            await HttpContext.SignOutAsync();
+
+            return RedirectToAction("Index");
         }
     }
 }
