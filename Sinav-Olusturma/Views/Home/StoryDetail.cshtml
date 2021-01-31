@@ -1,0 +1,100 @@
+﻿@model Sinav_Olusturma.Models.StoryQuestionDetail
+@{
+    ViewData["Title"] = "StoryDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 id="storyTitle">@Model.Story.Title</h3>
+<input type="hidden" value="@Model.StoryLink"/>
+<br />
+<iframe id="frame" src="" style="border:none;width:100%; clip:rect(190px,1100px,800px,250px);" height="480" allowfullscreen></iframe>
+<form>
+    <br />
+    <div class="row">
+        <div class="col-md-6 mt-5">
+            <p style="word-wrap:break-word; width:40%;">@Model.Question1.Title</p>
+            <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-outline-dark">
+                    <input type="radio" name="options" id="option1" autocomplete="off"> A) @Model.Question1.OptionA
+                </label>
+                <label class="btn btn-outline-dark">
+                    <input type="radio" name="options" id="option2" autocomplete="off"> B) @Model.Question1.OptionB
+                </label>
+                <label class="btn btn-outline-dark">
+                    <input type="radio" name="options" id="option3" autocomplete="off"> C) @Model.Question1.OptionC
+                </label>
+                <label class="btn btn-outline-dark">
+                    <input type="radio" name="options" id="option3" autocomplete="off"> D) @Model.Question1.OptionD
+                </label>
+            </div>
+        </div>
+        <div class="col-md-6 mt-5">
+            <p style="word-wrap:break-word; width:40%;">@Model.Question2.Title</p>
+            <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-outline-dark">
+                    <input type="radio" name="options" id="option1" autocomplete="off"> A) @Model.Question2.OptionA
+                </label>
+                <label class="btn btn-outline-dark">
+                    <input type="radio" name="options" id="option2" autocomplete="off"> B) @Model.Question2.OptionB
+                </label>
+                <label class="btn btn-outline-dark">
+                    <input type="radio" name="options" id="option3" autocomplete="off"> C) @Model.Question2.OptionC
+                </label>
+                <label class="btn btn-outline-dark">
+                    <input type="radio" name="options" id="option3" autocomplete="off"> D) @Model.Question2.OptionD
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mt-5">
+            <p style="word-wrap:break-word; width:40%;">@Model.Question3.Title</p>
+            <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-outline-dark">
+                    <input type="radio" name="options" id="option1" autocomplete="off"> A) @Model.Question3.OptionA
+                </label>
+                <label class="btn btn-outline-dark">
+                    <input type="radio" name="options" id="option2" autocomplete="off"> B) @Model.Question3.OptionB
+                </label>
+                <label class="btn btn-outline-dark">
+                    <input type="radio" name="options" id="option3" autocomplete="off"> C) @Model.Question3.OptionC
+                </label>
+                <label class="btn btn-outline-dark">
+                    <input type="radio" name="options" id="option3" autocomplete="off"> D) @Model.Question3.OptionD
+                </label>
+            </div>
+        </div>
+        <div class="col-md-6 mt-5">
+            <p style="word-wrap:break-word; width:40%;">@Model.Question4.Title</p>
+            <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-outline-dark">
+                    <input type="radio" name="options" id="option1" autocomplete="off"> A) @Model.Question1.OptionA
+                </label>
+                <label class="btn btn-outline-dark">
+                    <input type="radio" name="options" id="option2" autocomplete="off"> B)@Model.Question1.OptionB
+                </label>
+                <label class="btn btn-outline-dark">
+                    <input type="radio" name="options" id="option3" autocomplete="off"> C) @Model.Question1.OptionC
+                </label>
+                <label class="btn btn-outline-dark">
+                    <input type="radio" name="options" id="option3" autocomplete="off"> D) @Model.Question1.OptionD
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-4"></div>
+        <div class="col-4"><button class="btn btn-lg btn-success">Sınavı Tamamla</button></div>
+        <div class="col-4"></div>
+    </div>
+</form>
+
+@section StoryQuestionsScripts
+{
+    <script>
+        var x = $('input[type=hidden]').val();
+        var frame = document.getElementById("frame");
+        frame.src = x;
+        console.log(@Model.Question1.CorrectOption);
+    </script>
+}
