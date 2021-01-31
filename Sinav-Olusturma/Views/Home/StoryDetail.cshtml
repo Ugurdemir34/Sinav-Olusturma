@@ -9,22 +9,23 @@
 <br />
 <iframe id="frame" src="" style="border:none;width:100%; clip:rect(190px,1100px,800px,250px);" height="480" allowfullscreen></iframe>
 <form>
+    <input type="hidden" value="@Model.Story.Id"  id="storyId"/>
     <br />
     <div class="row">
         <div class="col-md-6 mt-5">
             <p style="word-wrap:break-word; width:40%;">@Model.Question1.Title</p>
             <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-outline-dark">
-                    <input type="radio" name="options" id="option1" autocomplete="off"> A) @Model.Question1.OptionA
+                    <input type="radio" name="options1" id="option1" autocomplete="off" value="A"> A) @Model.Question1.OptionA
                 </label>
                 <label class="btn btn-outline-dark">
-                    <input type="radio" name="options" id="option2" autocomplete="off"> B) @Model.Question1.OptionB
+                    <input type="radio" name="options1" id="option2" autocomplete="off" value="B"> B) @Model.Question1.OptionB
                 </label>
                 <label class="btn btn-outline-dark">
-                    <input type="radio" name="options" id="option3" autocomplete="off"> C) @Model.Question1.OptionC
+                    <input type="radio" name="options1" id="option3" autocomplete="off" value="C"> C) @Model.Question1.OptionC
                 </label>
                 <label class="btn btn-outline-dark">
-                    <input type="radio" name="options" id="option3" autocomplete="off"> D) @Model.Question1.OptionD
+                    <input type="radio" name="options1" id="option3" autocomplete="off" value="D"> D) @Model.Question1.OptionD
                 </label>
             </div>
         </div>
@@ -32,16 +33,16 @@
             <p style="word-wrap:break-word; width:40%;">@Model.Question2.Title</p>
             <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-outline-dark">
-                    <input type="radio" name="options" id="option1" autocomplete="off"> A) @Model.Question2.OptionA
+                    <input type="radio" name="options2" id="option1" autocomplete="off" value="A"> A) @Model.Question2.OptionA
                 </label>
                 <label class="btn btn-outline-dark">
-                    <input type="radio" name="options" id="option2" autocomplete="off"> B) @Model.Question2.OptionB
+                    <input type="radio" name="options2" id="option2" autocomplete="off" value="B"> B) @Model.Question2.OptionB
                 </label>
                 <label class="btn btn-outline-dark">
-                    <input type="radio" name="options" id="option3" autocomplete="off"> C) @Model.Question2.OptionC
+                    <input type="radio" name="options2" id="option3" autocomplete="off" value="C"> C) @Model.Question2.OptionC
                 </label>
                 <label class="btn btn-outline-dark">
-                    <input type="radio" name="options" id="option3" autocomplete="off"> D) @Model.Question2.OptionD
+                    <input type="radio" name="options2" id="option3" autocomplete="off" value="D"> D) @Model.Question2.OptionD
                 </label>
             </div>
         </div>
@@ -51,16 +52,16 @@
             <p style="word-wrap:break-word; width:40%;">@Model.Question3.Title</p>
             <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-outline-dark">
-                    <input type="radio" name="options" id="option1" autocomplete="off"> A) @Model.Question3.OptionA
+                    <input type="radio" name="options3" id="option1" autocomplete="off" value="A"> A) @Model.Question3.OptionA
                 </label>
                 <label class="btn btn-outline-dark">
-                    <input type="radio" name="options" id="option2" autocomplete="off"> B) @Model.Question3.OptionB
+                    <input type="radio" name="options3" id="option2" autocomplete="off" value="B"> B) @Model.Question3.OptionB
                 </label>
                 <label class="btn btn-outline-dark">
-                    <input type="radio" name="options" id="option3" autocomplete="off"> C) @Model.Question3.OptionC
+                    <input type="radio" name="options3" id="option3" autocomplete="off" value="C"> C) @Model.Question3.OptionC
                 </label>
                 <label class="btn btn-outline-dark">
-                    <input type="radio" name="options" id="option3" autocomplete="off"> D) @Model.Question3.OptionD
+                    <input type="radio" name="options3" id="option3" autocomplete="off" value="D"> D) @Model.Question3.OptionD
                 </label>
             </div>
         </div>
@@ -68,16 +69,16 @@
             <p style="word-wrap:break-word; width:40%;">@Model.Question4.Title</p>
             <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-outline-dark">
-                    <input type="radio" name="options" id="option1" autocomplete="off"> A) @Model.Question1.OptionA
+                    <input type="radio" name="options4" id="option1" autocomplete="off" value="A"> A) @Model.Question1.OptionA
                 </label>
                 <label class="btn btn-outline-dark">
-                    <input type="radio" name="options" id="option2" autocomplete="off"> B)@Model.Question1.OptionB
+                    <input type="radio" name="options4" id="option2" autocomplete="off" value="B"> B)@Model.Question1.OptionB
                 </label>
                 <label class="btn btn-outline-dark">
-                    <input type="radio" name="options" id="option3" autocomplete="off"> C) @Model.Question1.OptionC
+                    <input type="radio" name="options4" id="option3" autocomplete="off" value="C"> C) @Model.Question1.OptionC
                 </label>
                 <label class="btn btn-outline-dark">
-                    <input type="radio" name="options" id="option3" autocomplete="off"> D) @Model.Question1.OptionD
+                    <input type="radio" name="options4" id="option3" autocomplete="off" value="D"> D) @Model.Question1.OptionD
                 </label>
             </div>
         </div>
@@ -95,11 +96,19 @@
         var x = $('input[type=hidden]').val();
         var frame = document.getElementById("frame");
         frame.src = x;
-        console.log(@Model.Question1.CorrectOption);
+       
     </script>
     <script>
-        var array = [67, 'B', 'A', 'C', 'A'];
-        $("#finish").click(function () {
+
+        var storyId = $("#storyId").val();
+        $("#finish").click(function ()
+        {
+            var q1 = $("input[name='options1']:checked");
+            var q2 = $("input[name='options2']:checked");
+            var q3 = $("input[name='options3']:checked");
+            var q4 = $("input[name='options4']:checked");
+            $("#finish").remove();
+             var array = [storyId, q1.val(), q2.val(), q3.val(), q4.val()];          
             $.ajax({
                 type: "GET",
                 url: "/Home/FinishExam",
@@ -107,11 +116,25 @@
                 contentType: 'application/json;charset=utf-8',
                 success: function (data) {
                     $.each(data, function (index) {
-                        alert(data[index]);
+                      
+                        if (data[index] == "1") {
+                            //q1.parent().removeClass("btn-outline-dark");
+                            //q1.parent().addClass("btn-danger");
+                            $("input[name='options" + (index + 1) + "']:checked").parent().removeClass("btn-outline-dark");
+                            $("input[name='options" + (index + 1) + "']:checked").parent().addClass("btn-success");
+                            //$("input[name='options" + (index + 1) + "']:checked").removeClass("btn-outline-dark");
+                           // $("input[name='options" + (index + 1) + "']:checked").addClass("btn-danger");
+                        }
+                        else {
+                            $("input[name='options" + (index + 1) + "']:checked").parent().removeClass("btn-outline-dark");
+                            $("input[name='options" + (index + 1) + "']:checked").parent().addClass("btn-danger");
+                        }
+                        
                     })
                 }
             });
         })
+       
       
     </script>
 }
