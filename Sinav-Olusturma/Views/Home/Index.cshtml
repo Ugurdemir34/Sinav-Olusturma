@@ -20,9 +20,7 @@
     </div>*@
 
 <br />
-@ViewData["message"]
 <form asp-action="Index" asp-controller="Home">
-
     <select id="mySelect" class="form-control form-control-lg" onchange="myFunction(this)" asp-for="@Model.StoryLink" asp-items="@Model.StoryTitles">
         <option disabled selected value="-1">Seç</option>
     </select>
