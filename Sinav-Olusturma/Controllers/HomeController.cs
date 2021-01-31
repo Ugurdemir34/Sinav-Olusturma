@@ -27,7 +27,6 @@ namespace Sinav_Olusturma.Controllers
             _storyService = storyService;
             _questionService = questionService;
         }
-
         public IActionResult Index()
         {
             var model = new NewQuestionModel()
@@ -96,7 +95,6 @@ namespace Sinav_Olusturma.Controllers
             _questionService.Add(question4);
             return RedirectToAction("Index");
         }
-
         public IActionResult Privacy()
         {
             return View();
@@ -126,6 +124,21 @@ namespace Sinav_Olusturma.Controllers
             _questionService.DeleteRange(questions);
             return Json("1");
         }
-
+        public IActionResult StoryDetail(int storyId)
+        {
+            var questions = _questionService.GetByStoryId(storyId);
+            var story = _storyService.GetById(storyId);
+            var model = new StoryQuestionDetail
+            {
+                Question1 = questions[0],
+                Question2 = questions[1],
+                Question3 = questions[2],
+                Question4 = questions[3],
+                StoryLink = story.Link,
+                StoryTitle = story.Title,
+                Story = story
+            };
+            return View(model);
+        }
     }
 }
