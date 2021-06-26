@@ -101,7 +101,7 @@ namespace Sinav_Olusturma.Controllers
         }
         private List<SelectListItem> LoadStories()
         {
-            List<SelectListItem> stories = (from a in RssReader.GetStories()
+            List<SelectListItem> stories = (from a in DataReader.GetData()
                                             select new SelectListItem
                                             {
                                                 Value = a.Link,
@@ -130,14 +130,19 @@ namespace Sinav_Olusturma.Controllers
             var story = _storyService.GetById(storyId);
             var model = new StoryQuestionDetail
             {
-                Question1 = questions[0],
-                Question2 = questions[1],
-                Question3 = questions[2],
-                Question4 = questions[3],
+                
+                //Question1 = questions[0],
+                //Question2 = questions[1],
+                //Question3 = questions[2],
+                //Question4 = questions[3],
                 StoryLink = story.Link,
                 StoryTitle = story.Title,
                 Story = story
             };
+            for (int i = 0; i < 4; i++)
+            {
+                model.Questions.Add(questions[i]);
+            }                      
             return View(model);
         }
         public JsonResult FinishExam(string[] controlArray)
